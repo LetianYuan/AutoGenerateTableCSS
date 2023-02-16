@@ -1,0 +1,76 @@
+$hexes: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" "A" "B" "C" "D" "E" "F";
+$line-styles: none hidden dotted dashed solid double groove ridge inset outset;
+$border-collapses: separate collapse;
+$text-aligns: start end left right center justify match-parent;
+$vertical-aligns: baseline sub super text-top text-bottom middle top bottom 20% 40% 60% 80%;
+$caption-sides: top bottom block-start block-end inline-start inline-end;
+$font-families: "SimSun" "Microsoft Yahei" "KaiTi" "serif" "sans-serif" "cursive" "fantasy" "monospace" "Times New Roman"; //微软雅黑具有版权，如果有侵权可能请把它去掉
+$font-weights: normal bold bolder lighter;
+$font-styles: normal italic oblique;
+@function random_choice($list) {
+  @return nth($list, random(length($list)))
+}
+
+@function random_color() {
+  $result: "#";
+  @for $i from 0 to 3 {
+    $result: $result + random_choice($hexes)
+  }
+  @return unquote($result)
+}
+
+@function random_font_size() {
+  @return unquote((10+random(30)) + "pt");
+}
+
+@function random_border_width() {
+  @return unquote(random(10) + "px")
+}
+
+@function random_line_styles() {
+  @return random_choice($line-styles)
+}
+
+@function random_padding() {
+  @return unquote(random(10) + "px")
+}
+
+@function random_margin() {
+  @return unquote(random(10) + "px")
+}
+
+@function random_collapse() {
+  @return random_choice($border-collapses)
+}
+
+@function random_table_width() {
+  @return unquote((100 + random(1000)) + "px")
+}
+
+@function random_row_height() {
+  @return unquote((10 + random(100)) + "px")
+}
+
+@function random_text_align() {
+  @return random_choice($text-aligns)
+}
+
+@function random_vertical_align() {
+  @return random_choice($vertical-aligns)
+}
+
+@function random_caption_side() {
+  @return random_choice($caption-sides)
+}
+
+@function random_font_family() {
+  @return unquote(random_choice($font-families))
+}
+
+@function random_font_weight() {
+  @return random_choice($font-weights)
+}
+
+@function random_font_style() {
+  @return random_choice($font-styles)
+}

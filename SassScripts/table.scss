@@ -1,0 +1,54 @@
+@import "constants";
+@import "reset";
+
+$table-cycle: (1 + random(4));
+
+@mixin my-tr {
+  background-color: random_color();
+  height: random_row_height();
+  text-align: random_text_align();
+  vertical-align: random_vertical_align();
+  @include my-font
+}
+
+@mixin my-font {
+  color: random_color();
+  font: {
+    weight: random_font_weight();
+    family: random_font_family(), sans-serif;
+    style: random_font_style();
+    size: random_font_size();
+  };
+}
+
+@for $i from 0 to $table-cycle {
+  table tbody tr:nth-child(#{$table-cycle}n + #{$i}) {
+    @include my-tr;
+  }
+}
+
+table thead tr {
+  @include my-tr;
+}
+
+table tfoot tr {
+  @include my-tr;
+}
+
+table {
+  border: random_border_width() random_line_styles() random_color();
+  width: random_table_width();
+  caption-side: random_caption_side();
+}
+
+table th, table td {
+  padding: random_padding();
+  border-collapse: random_collapse();
+  border: random_border_width() random_line_styles() random_color();
+}
+
+table caption {
+  background-color: random_color();
+  padding: random_padding();
+  @include my-font;
+}
