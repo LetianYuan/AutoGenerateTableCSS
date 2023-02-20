@@ -74,3 +74,7 @@ $font-styles: normal italic oblique;
 @function random_font_style() {
   @return random_choice($font-styles)
 }
+
+@function random_rgba_color() {
+  @return unquote("rgba("+ random(256) + "," + random(256) + "," + random(256) + ",0." + (random(50) - 1) + ")")
+}

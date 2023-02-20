@@ -4,7 +4,7 @@
 $table-cycle: (1 + random(4));
 
 @mixin my-tr {
-  background-color: random_color();
+  background-color: random_rgba_color();
   height: random_row_height();
   text-align: random_text_align();
   vertical-align: random_vertical_align();
